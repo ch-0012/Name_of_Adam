@@ -84,9 +84,12 @@ public class BattleManager : MonoBehaviour
                     continue;
 
                 if (targetUnit.Team == Team.Enemy)
+                {
                     //공격 전 낙인 체크
                     unit.SkillUse(Field.GetUnit(coord + splash));
-                    //공격 후 낙인 체크
+                    unit.PassiveCheck(targetUnit, PassiveType.AFTERATTACK); //공격 후 낙인 체크
+                }
+
 
             }
         }

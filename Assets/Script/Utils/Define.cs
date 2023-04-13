@@ -107,16 +107,15 @@ public enum Sound
     MaxCount,
 }
 
-public enum PassiveType 
-{ 
-    BEFOREATTACK, 
-    AFTERATTACK, 
-    BEFOREATTACKED, 
-    AFTERATTACKED, 
-    FALL, 
-    FALLED, 
-    MOVE, 
-    SUMMON, 
-    ETC 
+public enum PassiveType
+{
+    BEFOREATTACK,
+    AFTERATTACK,
+    BEFOREATTACKED,
+    AFTERATTACKED,
+    FALL,
+    FALLED,
+    MOVE,
+    SUMMON,
+    ETC
 };
-

@@ -9,7 +9,7 @@ public struct SpawnData
     public GameObject prefab;
     public Vector2 location;
     public Team team;
-    public Passive[] stigmas;
+    public List<Passive> stigmata;
 }
 
 // 핸드 -> 필드 위에 생성

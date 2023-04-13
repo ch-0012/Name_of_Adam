@@ -15,7 +15,7 @@ public class BattleUnit : DeckUnit
     [SerializeField] public UnitHP HP;
     [SerializeField] public UnitFall Fall;
     [SerializeField] public UnitSkill Skill;
-    [SerializeField] public List<Passive> Passive;
+    [SerializeField] public List<Passive> Passive = new List<Passive>();
 
     [SerializeField] Vector2 _location;
     public Vector2 Location => _location;
@@ -195,29 +195,28 @@ public class BattleUnit : DeckUnit
 
 
     // 낙인 타입에 따라 낙인 내용 실행하는 함수 BattleManager나 BattleUnit 혹은 제 3자에 넣을 지 고민 중
-    public void PassiveCheck(BattleUnit caster, BattleUnit receiver, PassiveType type)
+    public void PassiveCheck(BattleUnit receiver, PassiveType type)
     {
         if(type == PassiveType.BEFOREATTACKED || type == PassiveType.AFTERATTACKED || type == PassiveType.FALLED)
         {
-            for (int i = 0; i < receiver.Passive.Count; i++)
+            foreach (Passive passive in receiver.Passive)
             {
-                if (receiver.Passive[i].GetPassiveType() == type)
+                if (passive.GetPassiveType() == type)
                 {
-                    receiver.Passive[i].Use(caster, receiver);
+                    passive.Use(this, receiver);
                 }
             }
         }
         else
         {
-            for (int i = 0; i < caster.Passive.Count; i++)
+            foreach(Passive passive in Passive)
             {
-                if (caster.Passive[i].GetPassiveType() == type)
+                if (passive.GetPassiveType() == type)
                 {
-                    caster.Passive[i].Use(caster, receiver);
+                    passive.Use(this, receiver);
                 }
-            }
+            }   
         }
-        
     }
 
 
