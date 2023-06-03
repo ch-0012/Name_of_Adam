@@ -19,6 +19,6 @@ public class PlayerSkillDamage : PlayerSkill
 
     public override void OnSelect()
     {
-        BattleManager.Instance.EnemyTargetPlayerSkillReady(BattleManager.FieldColorType.PlayerSkill_1);
+        BattleManager.Instance.EnemyTargetPlayerSkillReady(BattleManager.FieldColorType.PlayerSkillDamage);
     }
 }
